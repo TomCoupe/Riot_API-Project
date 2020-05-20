@@ -13,12 +13,14 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <script src="https://kit.fontawesome.com/d90e008d9c.js" crossorigin="anonymous"></script>
+
     </head>
     <body>
         <main class="main" id="main">
 
         @include('partials.header')
-        
+
         <section class="content content--full">
             <div id="main">
                 @yield('content')
