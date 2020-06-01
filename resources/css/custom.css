@@ -5,3 +5,9 @@
 .text-black {
     color: black;
 }
+
+.text-font-comic {
+    color: black;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
+    pointer-events: none;
+}
