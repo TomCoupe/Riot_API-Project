@@ -12,9 +12,10 @@
   </div>
 
   <div class="navbar-end">
-      <a class="navbar-item" href="/profile">
-      <i class="fas fa-ad"></i>
-        My Profile
+      <a class="navbar-item text-black" href="/profile">
+      <i class="fas fa-user-alt"></i>
+        &nbsp;
+         My Profile
       </a>
   </div>
 </nav>

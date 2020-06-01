@@ -22,9 +22,14 @@
         @include('partials.header')
 
         <section class="content content--full">
-            <div id="main">
+        <div class="row">
+            <div class="col-sm-2">
+                @include('partials.sidebar')
+            </div>
+            <div class="col-sm-10" id="main">
                 @yield('content')
             </div>
+        </div>
         </section>
         </main>
     <script src="{{ mix('js/app.js') }}"></script>
