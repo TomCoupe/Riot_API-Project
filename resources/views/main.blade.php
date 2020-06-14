@@ -16,7 +16,7 @@
         <script src="https://kit.fontawesome.com/d90e008d9c.js" crossorigin="anonymous"></script>
 
     </head>
-    <body>
+    <body class="card-body-dark">  
         <main class="main" id="main">
 
         @include('partials.header')

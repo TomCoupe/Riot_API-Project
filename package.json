@@ -22,6 +22,7 @@
     "dependencies": {
         "bulma": "^0.8.2",
         "font-awesome": "^4.7.0",
+        "mdbootstrap": "^4.19.0",
         "vue": "^2.6.11",
         "webpack-dev-server": "^3.11.0"
     }

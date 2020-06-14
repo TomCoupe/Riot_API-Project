@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04b5400998a0e1c0735b860796d1353f",
+    "content-hash": "04aedffbd4bdba314382a31fc4b7007e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -109,6 +109,62 @@
                 }
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "devtemple/lara-lol",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AdrianKuriata/lara-lol.git",
+                "reference": "2e774319685daea65ed8340265ef4a6cda4b57f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AdrianKuriata/lara-lol/zipball/2e774319685daea65ed8340265ef4a6cda4b57f3",
+                "reference": "2e774319685daea65ed8340265ef4a6cda4b57f3",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Devtemple\\Laralol\\LaralolServiceProvider"
+                    ],
+                    "aliases": {
+                        "Champion": "Devtemple\\Laralol\\Facades\\Champion",
+                        "Summoner": "Devtemple\\Laralol\\Facades\\Summoner",
+                        "LolStatus": "Devtemple\\Laralol\\Facades\\LolStatus",
+                        "Spectator": "Devtemple\\Laralol\\Facades\\Spectator",
+                        "ChampionMastery": "Devtemple\\Laralol\\Facades\\ChampionMastery",
+                        "ThirdPartyCode": "Devtemple\\Laralol\\Facades\\ThirdPartyCode",
+                        "League": "Devtemple\\Laralol\\Facades\\League",
+                        "Match": "Devtemple\\Laralol\\Facades\\Match",
+                        "TournamentStub": "Devtemple\\Laralol\\Facades\\TournamentStub",
+                        "Tournament": "Devtemple\\Laralol\\Facades\\Tournament"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Devtemple\\Laralol\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrian Kuriata",
+                    "email": "adriandj83@gmail.com"
+                }
+            ],
+            "description": "This is a package, which help you work simplier with League of Legends API",
+            "time": "2018-10-22T13:44:17+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

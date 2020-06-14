@@ -1,34 +1,35 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar navbar-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="">
-      <img src="https://fimg.festivalclaca.cat/imgfv/s/58-581034_09-jansold-outfebruary-pizza-and-a-movie-night.png" width="50">
-      <span class="text-font-comic">Toms Site</span>
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+    <a class="navbar-item" href=""> 
+      <span class="text-font-comic text-white">Toms Stats Site</span>
     </a>
   </div>
 
+  <div class="wrap">
+    <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+
   <div class="navbar-end">
-      <a class="navbar-item text-black" href="/profile">
-      <i class="fas fa-film"></i>
-        &nbsp;
-         Genres
-      </a>
+      <a class="navbar-item text-white" href="/profile">
+      <button class="btn btn-primary-dark">
+        <i class="fas fa-home"></i> 
+          &nbsp;
+          Home
+        </a>
+      </button>
       &nbsp;
-      <a class="navbar-item text-black" href="/profile">
-      <i class="fas fa-home"></i>
-        &nbsp;
-         Home
-      </a>
-      &nbsp;
-      <a class="navbar-item text-black" href="/profile">
+      <a class="navbar-item text-white" href="/profile">
+      <button class="btn btn-primary-dark">
       <i class="fas fa-user-alt"></i>
         &nbsp;
          My Profile
       </a>
+      </button>
   </div>
+  
 </nav>
