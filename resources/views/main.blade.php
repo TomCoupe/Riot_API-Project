@@ -13,17 +13,21 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <link rel="stylesheet" href="/path/to/select2.css">
+        <link rel="stylesheet" href="/path/to/select2-bootstrap4.css">
+
         <script src="https://kit.fontawesome.com/d90e008d9c.js" crossorigin="anonymous"></script>
 
     </head>
-    <body class="card-body-dark">  
+    <body class="card-body-dark h-100">  
         <main class="main" id="main">
 
         @include('partials.header')
 
-        <section class="content content--full">
+        <section class="content content--full h-100">
             @yield('content')
         </section>
+
         </main>
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

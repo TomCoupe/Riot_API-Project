@@ -76,6 +76,7 @@
 
 .homepage-card {
     align-self: center; 
+    height: 100%;
 }
 .home-card-title {
     text-align: center
@@ -83,4 +84,18 @@
 
 .button-full-width {
     width: 100%;
+}
+
+.row-height {
+    /* height: 100%; */
+    flex: 1;
+}
+
+html, body {
+    overflow: auto;
+}
+
+.datalist-theme {
+    width: 100%;
+    background-color: #fff; 
 }

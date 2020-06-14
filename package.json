@@ -20,10 +20,15 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "@ttskch/select2-bootstrap4-theme": "^1.4.0",
         "bulma": "^0.8.2",
         "font-awesome": "^4.7.0",
+        "lol-champions": "^10.12.1",
+        "lol-riot-api": "^3.0.2",
         "mdbootstrap": "^4.19.0",
+        "select2": "^4.0.13",
         "vue": "^2.6.11",
+        "vue-select": "^3.10.3",
         "webpack-dev-server": "^3.11.0"
     }
 }
