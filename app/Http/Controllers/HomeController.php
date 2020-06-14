@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 use Devtemple\Laralol\Facades\Champion;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Http;
+use App\Services\SummonerService;
 
-class HomeController extends BaseController {
+class HomeController extends Controller {
+
+    protected $service;
+
+    public function __construct(SummonerService $service) {
+        $this->service = $service;
+    }
 
     public function getSummonerDetails($name) {
-        $response = Http::get('http://ddragon.leagueoflegends.com/cdn/10.11.1/data/en_US/champion/Aatrox.json');
-        dd(json_encode($response));
+        $summonerData = $this->service->getSummonerDataByName($name);
+        dd($summonerData);
     }
     // https://api.riotgames.com
+    // https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/
 }           

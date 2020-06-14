@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/summoner/{name}','HomeController@getSummonerDetails');
+// Route::get('/champion/{name}', '')

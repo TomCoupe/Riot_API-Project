@@ -10,9 +10,10 @@
     "require": {
         "php": "^7.2.5",
         "devtemple/lara-lol": "^1.0",
+        "dolejska-daniel/riot-api": "^4",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.5",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "predis/predis": "^1.1"
