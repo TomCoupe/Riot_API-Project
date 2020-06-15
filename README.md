@@ -10,7 +10,7 @@
 <p>
 <b>Make sure Docker and Node are installed locally on your machine.
 
-If you do not have an API key, you can use a free API key on the Riot Developer Portal.</b>
+If you do not have an API key, you can get a free API key on the Riot Developer Portal.</b>
 
 <b>1)</b> Pull down the branch and access project root via terminal.
 
@@ -45,4 +45,10 @@ then:
 <b>7)</b> in your .env file create and set RIOT_API_KEY to your riot api key provided from the Riot Developer Portal.
 
 <b>8)</b> in your browser navigate to: http://localhost:8086/
+
+
+if you are having issues migrating the database try running inside the container: 
+
+```composer dump-autoload```
+
 </p>
