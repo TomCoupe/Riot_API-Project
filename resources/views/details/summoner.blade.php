@@ -7,7 +7,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <champion-page :name="{{$name}}"></champion-page>
+                <summoner-page :playerdata={{json_encode($data)}}></summoner-page>
             </div>
         </div>
     </div>

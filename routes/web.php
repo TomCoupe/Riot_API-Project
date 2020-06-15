@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/summoner/{name}','HomeController@getSummonerDetails');
+Route::get('/summoner/{region}/{name}','SummonerController@getSummonerData');
 Route::get('/champion/{name}', 'ChampionController@showChampion');

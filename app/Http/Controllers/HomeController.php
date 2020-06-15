@@ -13,10 +13,10 @@ class HomeController extends Controller {
         $this->service = $service;
     }
 
-    public function getSummonerDetails($name) {
-        $summonerData = $this->service->getSummonerDataByName($name);
-        dd($summonerData);
-    }
+    // public function getSummonerDetails($name) {
+    //     $summonerData = $this->service->getSummonerDataByName($name);
+    //     dd($summonerData);
+    // }
     // https://api.riotgames.com
     // https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/
 }           

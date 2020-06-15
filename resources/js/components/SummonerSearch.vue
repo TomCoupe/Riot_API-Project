@@ -1,11 +1,11 @@
 <template>
     <div class="form-group">
         <label><b>Summoner name:</b></label>
-        <input class="form-control" type="text" placeholder="Please input a summoner name" v-model="formData.summonerName">
+        <input class="form-control" type="text" placeholder="Please input a summoner name" v-model="summonerName">
         <label><b>Region:</b></label>
-        <v-select :options="arr" placeholder="Select a region" v-model="formData.region"></v-select>
+        <v-select :options="arr" placeholder="Select a region" v-model="region"></v-select>
         &nbsp;
-        <button class="btn btn-primary-dark text-white button-full-width"> Search</button>
+        <button class="btn btn-primary-dark text-white button-full-width" @click="this.getSummoner"> Search</button>
         &nbsp;
     </div>
 </template>
@@ -27,15 +27,15 @@ export default {
                 'EUNE',
                 'KR',
             ],
-            formData: {
-                region: '',
-                summonerName: '' 
-            }
+            region: '',
+            summonerName: '' 
         }
     },
 
     methods: {
-
+        getSummoner() {
+            window.location.href = '/summoner/'+ this.region +'/'+ this.summonerName;
+        }
     }
 }
 </script>

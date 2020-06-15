@@ -4,23 +4,34 @@ namespace App\Services;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Definitions\Region;
 use Illuminate\Support\Facades\Http;
+use App\RiotHelpers\SummonerAPIHelper;
 
 class SummonerService {
-    protected $api;
 
-    public function __construct() {
-        $this->api = new LeagueAPI([
-            //  Your API key, you can get one at https://developer.riotgames.com/
-            LeagueAPI::SET_KEY    => env('RIOT_API_KEY'),
-            //  Target region (you can change it during lifetime of the library instance)
-            LeagueAPI::SET_REGION => Region::EUROPE_WEST,
-        ]);
-        
+    protected $helper;
+
+    public function __construct(SummonerAPIHelper $helper) {
+        $this->helper = $helper;
     }
 
-    public function getSummonerDataByName($name) {
-        $summoner = $this->api->getSummonerByName($name);
-        $response = Http::get('https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/'. $summoner->id . '?api_key=' . env('RIOT_API_KEY'));
-        return $response->json();
+    public function getRegionId($region) {
+        switch ($region) {
+            case 'EUW':
+                return 'euw1';
+            case 'US':
+                return 'us1';
+            case 'KR':
+                return 'kr';
+            case 'EUNE':
+                return 'eun1';
+            default:
+                return response('invalid region provided', 422);
+        }
+    }
+
+    public function getSummonerDataByName($region, $name) {
+        $region = $this->getRegionId($region);
+        $summoner = $this->helper->getRankedInformationByName($region, $name);
+        return $summoner;
     }
 }
