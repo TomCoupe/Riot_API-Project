@@ -42,5 +42,7 @@ then:
 
 ```npm run dev```
 
-<b>7)</b> in your browser navigate to: http://localhost:8086/
+<b>7)</b> in your .env file create and set RIOT_API_KEY to your riot api key provided from the Riot Developer Portal.
+
+<b>8)</b> in your browser navigate to: http://localhost:8086/
 </p>
