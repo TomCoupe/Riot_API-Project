@@ -4,7 +4,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title home-card-title"> {{this.playerInfo.name}} - Season 10</h4>
+                    <h4 class="card-title home-card-title"><i class="fas fa-chess-king"></i> {{this.playerInfo.name}} - Season 10 <i class="fas fa-chess-king"></i></h4>
                 </div>
             </div>
         </div>

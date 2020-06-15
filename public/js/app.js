@@ -20605,7 +20605,9 @@ var render = function() {
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
             _c("h4", { staticClass: "card-title home-card-title" }, [
-              _vm._v(" " + _vm._s(this.playerInfo.name) + " - Season 10")
+              _c("i", { staticClass: "fas fa-chess-king" }),
+              _vm._v(" " + _vm._s(this.playerInfo.name) + " - Season 10 "),
+              _c("i", { staticClass: "fas fa-chess-king" })
             ])
           ])
         ])
