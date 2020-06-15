@@ -4,7 +4,7 @@
       <span class="text-font-comic text-white">Toms Stats Site</span>
     </a>
   </div>
-
+<!-- SEARCHBAR CSS NEEDS FIXING FOR FLEXBOX -->
   <div class="wrap">
     <div class="search">
       <input type="text" class="searchTerm" placeholder="What are you looking for?">

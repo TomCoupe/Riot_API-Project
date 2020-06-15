@@ -1,3 +1,5 @@
+<h2>League Of Legends Stats Application</h2>
+
 <b>Pre-requisite's: </b>
 <ul>
     <li>Docker</li>
@@ -10,7 +12,7 @@
 <p>
 <b>Make sure Docker and Node are installed locally on your machine.
 
-If you do not have an API key, you can get a free API key on the Riot Developer Portal.</b>
+If you do not have an API key, you can get a free API key on the Riot Developer Portal. https://developer.riotgames.com/</b>
 
 <b>1)</b> Pull down the branch and access project root via terminal.
 
@@ -50,5 +52,7 @@ then:
 if you are having issues migrating the database try running inside the container: 
 
 ```composer dump-autoload```
+
+
 
 </p>
