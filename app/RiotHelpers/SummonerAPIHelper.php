@@ -14,7 +14,7 @@ class SummonerAPIHelper {
     public function getSummonerByName($region, $name) {
         $response = Http::get('https://'. $region . '.api.riotgames.com/lol/summoner/v4/summoners/by-name/'. $name . '?api_key=' . env('RIOT_API_KEY'));
         return $response->json();
-    }
+    }  
 
     public function getRankedInformationByName($region, $name) {
         $accInfo = $this->getSummonerByName($region, $name);

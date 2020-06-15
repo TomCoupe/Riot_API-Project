@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href=""> 
+    <a class="navbar-item" href="/"> 
       <span class="text-font-comic text-white">Toms Stats Site</span>
     </a>
   </div>

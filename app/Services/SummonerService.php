@@ -28,8 +28,13 @@ class SummonerService {
                 return response('invalid region provided', 422);
         }
     }
+    public function getSummonerProfileDataByName($region, $name) {
+        $region = $this->getRegionId($region);
+        $profileInfo = $this->helper->getSummonerByName($region, $name);
+        return $profileInfo;
+    }
 
-    public function getSummonerDataByName($region, $name) {
+    public function getSummonerRankedDataByName($region, $name) {
         $region = $this->getRegionId($region);
         $summoner = $this->helper->getRankedInformationByName($region, $name);
         return $summoner;

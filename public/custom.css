@@ -91,8 +91,28 @@
     flex: 1;
 }
 
+.soft-grey-background {
+    background-color: #e3e3e3;
+}
+
 html, body {
     overflow: auto;
+}
+.text-green {
+    color: green;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-float {
+    float: left;
+    border: 3px solid #343e54;
+}
+
+.p-text {
+    display: inline;
 }
 
 .datalist-theme {

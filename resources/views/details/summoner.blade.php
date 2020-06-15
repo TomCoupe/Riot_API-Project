@@ -5,11 +5,11 @@
     &nbsp;
     &nbsp;
     <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <summoner-page :playerdata={{json_encode($data)}}></summoner-page>
-            </div>
-        </div>
+        <summoner-page 
+        :playerdata={{json_encode($data)}} 
+        :playerinfo={{json_encode($playerInfo)}}
+        :playerregion={{json_encode($playerRegion)}}>
+    </summoner-page>
     </div>
     &nbsp;
     &nbsp;

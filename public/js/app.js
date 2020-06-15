@@ -2035,13 +2035,117 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SummonerPage.vue",
-  props: ['playerdata'],
+  props: ['playerdata', 'playerinfo', 'playerregion'],
+  mounted: function mounted() {
+    this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/' + this.playerinfo.profileIconId + '.png';
+    this.winRatio = this.calculateWinRatio();
+    this.flexRatio = this.calculateFlexWinRatio();
+    this.soloDuoRankPath = this.getSoloDuoRankName();
+    this.flexRankPath = this.getFlexRankName();
+  },
   data: function data() {
     return {
-      playerInfo: this.playerdata
+      playerData: this.playerdata,
+      playerInfo: this.playerinfo,
+      playerRegion: this.playerregion,
+      iconURL: '',
+      winRatio: '',
+      flexRatio: '',
+      soloDuoRankPath: '',
+      soloDuoRank: '',
+      flexRank: '',
+      flexRankPath: ''
     };
+  },
+  methods: {
+    calculateWinRatio: function calculateWinRatio() {
+      var total = this.playerData[0].wins + this.playerData[0].losses;
+      var temp = this.playerData[0].wins * 100;
+      var result = temp / total;
+      return result.toFixed(1) + '%';
+    },
+    calculateFlexWinRatio: function calculateFlexWinRatio() {
+      var total = this.playerData[1].wins + this.playerData[1].losses;
+      var temp = this.playerData[1].wins * 100;
+      var result = temp / total;
+      return result.toFixed(1) + '%';
+    },
+    getSoloDuoRankName: function getSoloDuoRankName() {
+      var rank = this.playerData[0].tier;
+      var lowerCase = rank.toLowerCase();
+      var rankd = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
+      this.soloDuoRank = rankd;
+      var image = '/images/Emblem_' + rankd + '.png';
+      return image;
+    },
+    getFlexRankName: function getFlexRankName() {
+      var rank = this.playerData[1].tier;
+      var lowerCase = rank.toLowerCase();
+      var rankd = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
+      this.flexRank = rankd;
+      var image = '/images/Emblem_' + rankd + '.png';
+      return image;
+    }
   }
 });
 
@@ -20495,9 +20599,170 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h4", { staticClass: "card-title home-card-title" }, [
+              _vm._v(" " + _vm._s(this.playerInfo.name) + " - Season 10")
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v("\n     \n    "),
+    _c("div", { staticClass: "row" }, [
+      _vm._v("\n         \n        "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "card homepage-card h-100" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", [
+              _c("img", {
+                staticClass: "text-float",
+                attrs: { src: this.iconURL, width: "100" }
+              }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v("\n                         "),
+                _c("b", [_vm._v("Summoner: " + _vm._s(this.playerInfo.name))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("\n                         "),
+                _c("b", [_vm._v("Region: " + _vm._s(this.playerRegion))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("\n                         "),
+                _c("b", [
+                  _vm._v(
+                    "Account Level: " + _vm._s(this.playerInfo.summonerLevel)
+                  )
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v("\n                         "),
+                _c("b", [
+                  _vm._v("Ranked Win/Loss Ratio: "),
+                  _c("span", { staticClass: "text-green" }, [
+                    _vm._v(_vm._s(_vm.playerData[0].wins))
+                  ]),
+                  _vm._v("/"),
+                  _c("span", { staticClass: "text-red" }, [
+                    _vm._v(_vm._s(_vm.playerData[0].losses))
+                  ]),
+                  _vm._v(" (" + _vm._s(this.winRatio) + ")")
+                ])
+              ])
+            ]),
+            _vm._v("\n                     \n                    "),
+            _c("div", [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v("Ranked Solo/Duo")
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "text-float",
+                attrs: { src: this.soloDuoRankPath, width: "75" }
+              }),
+              _vm._v(" "),
+              _c("p", { staticClass: "home-card-title" }, [
+                _c("b", [
+                  _vm._v(
+                    _vm._s(this.soloDuoRank) +
+                      " " +
+                      _vm._s(this.playerData[0].rank) +
+                      " - " +
+                      _vm._s(this.playerData[0].leaguePoints) +
+                      " LP"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("b", [
+                  _c("span", { staticClass: "text-green" }, [
+                    _vm._v(_vm._s(_vm.playerData[0].wins))
+                  ]),
+                  _vm._v("/"),
+                  _c("span", { staticClass: "text-red" }, [
+                    _vm._v(_vm._s(_vm.playerData[0].losses))
+                  ]),
+                  _vm._v(" (" + _vm._s(this.winRatio) + ")")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", [
+              _c("h5", { staticClass: "card-title" }, [_vm._v("Ranked Flex")]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "text-float",
+                attrs: { src: this.flexRankPath, width: "75" }
+              }),
+              _vm._v(" "),
+              _c("p", { staticClass: "home-card-title" }, [
+                _c("b", [
+                  _vm._v(
+                    _vm._s(this.flexRank) +
+                      " " +
+                      _vm._s(this.playerData[1].rank) +
+                      " - " +
+                      _vm._s(this.playerData[1].leaguePoints) +
+                      " LP"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("b", [
+                  _c("span", { staticClass: "text-green" }, [
+                    _vm._v(_vm._s(_vm.playerData[1].wins))
+                  ]),
+                  _vm._v("/"),
+                  _c("span", { staticClass: "text-red" }, [
+                    _vm._v(_vm._s(_vm.playerData[1].losses))
+                  ]),
+                  _vm._v(" (" + _vm._s(this.flexRatio) + ")")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v("\n         \n    ")
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h4", { staticClass: "card-title home-card-title" }, [
+        _vm._v("Summoner info")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "card homepage-card  h-100" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _vm._v("\n                    sdfdssd\n                ")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
