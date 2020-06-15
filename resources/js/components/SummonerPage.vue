@@ -30,20 +30,24 @@
                     &nbsp;
                     <div>
                         <h5 class="card-title">Ranked Solo/Duo</h5>
+                        <template v-if="this.showSoloDuo === true">
                         <img class="text-float" :src="this.soloDuoRankPath" width="75">
                         <p class="home-card-title">
                             <b>{{this.soloDuoRank}} {{this.playerData[0].rank}} - {{this.playerData[0].leaguePoints}} LP</b> <br>
                             <b><span class="text-green">{{playerData[0].wins}}</span>/<span class="text-red">{{playerData[0].losses}}</span> ({{this.winRatio}})</b>
                         </p>
+                        </template>
                     </div>
                     <br>
                     <div>
                         <h5 class="card-title">Ranked Flex</h5>
+                        <template v-if="this.showFlex === true"> 
                         <img class="text-float" :src="this.flexRankPath" width="75">
                         <p class="home-card-title">
                             <b>{{this.flexRank}} {{this.playerData[1].rank}} - {{this.playerData[1].leaguePoints}} LP</b> <br>
                             <b><span class="text-green">{{playerData[1].wins}}</span>/<span class="text-red">{{playerData[1].losses}}</span> ({{this.flexRatio}})</b>
                         </p>
+                        </template>
                     </div>
                 </div>  
             </div>
@@ -65,11 +69,16 @@ export default {
     name: "SummonerPage.vue",
     props: ['playerdata', 'playerinfo', 'playerregion'],
     mounted() {
+        this.checkIfRanked();
         this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/'+ this.playerinfo.profileIconId +'.png'
+        if(this.showSoloDuo === true) {
         this.winRatio = this.calculateWinRatio();
-        this.flexRatio = this.calculateFlexWinRatio();
         this.soloDuoRankPath = this.getSoloDuoRankName();
+        }
+        if(this.showFlex === true) {
+        this.flexRatio = this.calculateFlexWinRatio();
         this.flexRankPath = this.getFlexRankName();
+        }
     },
     data () {
         return {
@@ -82,7 +91,9 @@ export default {
             soloDuoRankPath: '',
             soloDuoRank: '',
             flexRank: '',
-            flexRankPath: ''
+            flexRankPath: '',
+            showSoloDuo: false,
+            showFlex: false
         }
     },
     methods: {
@@ -113,6 +124,10 @@ export default {
             this.flexRank = rankd;
             let image = '/images/Emblem_' + rankd + '.png'; 
             return image;
+        },
+        checkIfRanked() {
+            this.showSoloDuo = (0 in this.playerData);
+            this.showFlex = (1 in this.playerData);
         }
     }
 }
