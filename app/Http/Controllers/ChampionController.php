@@ -1,10 +1,11 @@
 <?php
 
-// namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-// class ChampionController extends Controller {
+class ChampionController extends Controller {
 
-//     public function showChampion($name) {
-
-//     }
-// }
+    public function showChampion($name) {   
+        $champName = json_encode($name);
+        return view('details.champion')->with('name', $champName);
+    }
+}

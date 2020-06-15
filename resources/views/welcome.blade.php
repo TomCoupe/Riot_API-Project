@@ -2,6 +2,8 @@
 @section('content')
 &nbsp;
 <div class="row">
+    &nbsp;
+    &nbsp;
     <div class="col">
        <div class="card homepage-card h-100">
             <div class="card-header">
@@ -23,9 +25,13 @@
             </div>
        </div>
     </div>
+    &nbsp;
+    &nbsp;
 </div>
 &nbsp;
 <div class="row">
+    &nbsp;
+    &nbsp;
     <div class="col w-100">
     <div class="card homepage-card">
         <div class="card-header">
@@ -34,6 +40,9 @@
         <div class="card-body">
             <leaderboards-table></leaderboards-table>
         </div>
-        </div>
+    </div>
+    </div>
+    &nbsp;
+    &nbsp;
 </div>
 @endsection

@@ -22,9 +22,10 @@ export default {
     data () {
         return {
             arr: [
-                'dddd',
-                'ddd',
-                'ccccc'
+                'EUW',
+                'NA',
+                'EUNE',
+                'KR',
             ],
             formData: {
                 region: '',
