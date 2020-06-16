@@ -24,7 +24,11 @@ class SummonerAPIHelper {
 
     public function getMatchHistoryOfSummoner($region, $name) {
         $player = $this->getSummonerByName($region, $name);
-        $response = Http::get('https://'. $region . '.api.riotgames.com/lol/match/v4/matchlists/by-account/'. $player['accountId']. '?api_key=' . env('RIOT_API_KEY'));
+        $response = Http::get('https://'.$region.'.api.riotgames.com/lol/match/v4/matchlists/by-account/'.$player['accountId'].'?api_key='.env('RIOT_API_KEY'));
         return $response->json();
+    }
+
+    public function getMatchDetails($region, $matchId) {
+        $response = Http::get('https://'.$region.'.api.riotgames.com/lol/match/v4/matches/'.$matchId.'?api_key='.env('RIOT_API_KEY'));
     }
 }
