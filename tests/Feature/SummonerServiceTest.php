@@ -43,5 +43,24 @@ class SummonerServiceTest extends TestCase
         $result = $this->service->getRegionId('North Korea');
         $this->assertEquals($expected, $result);
     }
+
+    public function testGetSummonerProfileDataByName() {
+        $name = 'Coupe';
+        $result = $this->service->getSummonerProfileDataByName('EUW', $name);
+        $this->assertNotNull($result);
+        $this->assertEquals($name, $result['name']);
+    }
+
+    public function testGetSummonerRankedDataByName() {
+        $name = 'Coupe';
+        $expectedSoloDuo = 'RANKED_SOLO_5x5';
+        $expectedFlex = 'RANKED_FLEX_SR';
+        $result = $this->service->getSummonerRankedDataByName('EUW', $name);
+        $this->assertNotNull($result);
+        $soloDuo = $result[0];
+        $flex = $result[1];
+        $this->assertEquals($expectedSoloDuo, $soloDuo['queueType']);
+        $this->assertEquals($expectedFlex, $flex['queueType']);
+    }
     
 }
