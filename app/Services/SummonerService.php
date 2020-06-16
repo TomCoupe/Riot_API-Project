@@ -25,7 +25,7 @@ class SummonerService {
             case 'EUNE':
                 return 'eun1';
             default:
-                return response('invalid region provided', 422);
+                return false;   
         }
     }
     public function getSummonerProfileDataByName($region, $name) {
