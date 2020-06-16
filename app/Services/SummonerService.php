@@ -39,4 +39,9 @@ class SummonerService {
         $summoner = $this->helper->getRankedInformationByName($region, $name);
         return $summoner;
     }
+    public function getMatchHistoryByName($region, $name) {
+        $region = $this->getRegionId($region);
+        $history = $this->helper->getMatchHistoryOfSummoner($region, $name);
+        return $history;
+    }
 }

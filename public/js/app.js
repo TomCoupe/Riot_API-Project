@@ -2097,9 +2097,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SummonerPage.vue",
-  props: ['playerdata', 'playerinfo', 'playerregion'],
+  props: ['playerdata', 'playerinfo', 'playerregion', 'matchhistory'],
   mounted: function mounted() {
     this.checkIfRanked();
     this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/' + this.playerinfo.profileIconId + '.png';
@@ -20793,8 +20815,46 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col" }, [
       _c("div", { staticClass: "card homepage-card  h-100" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("h4", { staticClass: "card-title home-card-title" }, [
+            _vm._v("Match History")
+          ])
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
-          _vm._v("\n                    sdfdssd\n                ")
+          _c("table", { staticClass: "table table-bordered" }, [
+            _c("tr", [_c("th", [_vm._v("Matches")])]),
+            _vm._v(" "),
+            _c("tr", [
+              _vm._v(
+                "\n                            match 1\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _vm._v(
+                "\n                            match 2\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _vm._v(
+                "\n                            match 3\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _vm._v(
+                "\n                            match 4\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _vm._v(
+                "\n                            match 5\n                        "
+              )
+            ])
+          ])
         ])
       ])
     ])

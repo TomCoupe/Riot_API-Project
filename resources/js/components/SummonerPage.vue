@@ -54,8 +54,30 @@
         </div>  
         <div class="col">
             <div class="card homepage-card  h-100">
+                <div class="card-header">
+                    <h4 class="card-title home-card-title">Match History</h4>
+                </div>
                 <div class="card-body">
-                    sdfdssd
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Matches</th>
+                        </tr>
+                        <tr>
+                            match 1
+                        </tr>
+                        <tr>
+                            match 2
+                        </tr>
+                        <tr>
+                            match 3
+                        </tr>
+                        <tr>
+                            match 4
+                        </tr>
+                        <tr>
+                            match 5
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -67,7 +89,7 @@
 <script>
 export default {
     name: "SummonerPage.vue",
-    props: ['playerdata', 'playerinfo', 'playerregion'],
+    props: ['playerdata', 'playerinfo', 'playerregion', 'matchhistory'],
     mounted() {
         this.checkIfRanked();
         this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/'+ this.playerinfo.profileIconId +'.png'
