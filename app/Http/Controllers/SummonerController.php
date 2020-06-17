@@ -22,4 +22,4 @@ class SummonerController extends Controller {
             'playerRegion' => $region,
             'matchHistory' => $matchHistory]);
     }
-}   
+}
