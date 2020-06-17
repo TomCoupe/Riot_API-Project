@@ -9,7 +9,7 @@
         :playerdata={{json_encode($data)}} 
         :playerinfo={{json_encode($playerInfo)}} 
         :playerregion={{json_encode($playerRegion)}} 
-        :matchhistory={{json_encode($matchHistory)}}>
+        :matchhistory={{$matchHistory}}>
     </summoner-page>
     </div>
     &nbsp;
