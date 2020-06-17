@@ -15,7 +15,7 @@ class SummonerController extends Controller {
     public function getSummonerData($region, $name) {
         $response = $this->service->getSummonerRankedDataByName($region, $name);
         $playerInfo = $this->service->getSummonerProfileDataByName($region, $name);
-        $matchHistory = "";
+        $matchHistory = $this->service->getMatchHistoryByName($region, $name);
         return view('details.summoner')->with([
             'data' => $response, 
             'playerInfo' => $playerInfo, 
