@@ -43,6 +43,7 @@ class SummonerService {
         $region = $this->getRegionId($region);
         $history = $this->helper->getMatchHistoryOfSummoner($region, $name);
         $matches = $history['matches'];
+        // dd($matches);
         $arr = [];      
         for ($i = 0; $i < 5; $i++) {
             $result = $this->helper->getMatchDetails($region, $matches[$i]['gameId']);
@@ -51,7 +52,7 @@ class SummonerService {
                 'match' => $matches[$i]
             ];
         }
-        // dd($arr);
+        dd($arr);
         return $arr;
     }
 }

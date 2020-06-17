@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "devtemple/lara-lol": "^1.0",
-        "dolejska-daniel/riot-api": "^4",
+        "dolejska-daniel/riot-api": "^3",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.5",
