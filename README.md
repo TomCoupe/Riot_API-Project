@@ -16,6 +16,10 @@ If you do not have an API key, you can get a free API key on the Riot Developer 
 
 <b>1)</b> Pull down the branch and access project root via terminal.
 
+<b>2)</b> When in your project route run this command:
+
+```cp .env.example .env```
+
 <b>2)</b> Once in project root build the docker container: 
 
 ```docker-compose up --build```
@@ -52,7 +56,6 @@ then:
 if you are having issues migrating the database try running inside the container: 
 
 ```composer dump-autoload```
-
 
 
 </p>
