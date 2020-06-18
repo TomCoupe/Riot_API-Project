@@ -16,7 +16,7 @@ If you do not have an API key, you can get a free API key on the Riot Developer 
 
 <b>1)</b> Pull down the branch and access project root via terminal.
 
-<b>2)</b> When in your project route run this command:
+<b>2)</b> When in your project root run this command:
 
 ```cp .env.example .env```
 
