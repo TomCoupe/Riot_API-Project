@@ -101,8 +101,8 @@
                 </tr>
                 <tbody>
                 <template v-for="game in this.matchHistory">
-                <tr> 
-                    
+                <tr class="table-bordered"> 
+                    row
                 </tr>
                 </template>
                 </tbody>
@@ -124,12 +124,12 @@ export default {
         this.checkIfRanked();
         this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/'+ this.playerinfo.profileIconId +'.png'
         if(this.showSoloDuo === true) {
-        this.winRatio = this.calculateWinRatio();
-        this.soloDuoRankPath = this.getSoloDuoRankName();
+        this.winRatio = this.calculateWinRatio(0);
+        this.soloDuoRankPath = this.getRankName(0);
         }
         if(this.showFlex === true) {
-        this.flexRatio = this.calculateFlexWinRatio();
-        this.flexRankPath = this.getFlexRankName();
+        this.flexRatio = this.calculateWinRatio(1);
+        this.flexRankPath = this.getRankName(1);
         }
     },
     data () {
@@ -151,31 +151,22 @@ export default {
         }
     },
     methods: {
-        calculateWinRatio() {
-            let total = this.playerData[0].wins + this.playerData[0].losses;
-            let temp = this.playerData[0].wins * 100;
+        calculateWinRatio($key) {
+            let total = this.playerData[$key].wins + this.playerData[$key].losses;
+            let temp = this.playerData[$key].wins * 100;
             let result = temp / total; 
             return result.toFixed(1) + '%';
         },
-        calculateFlexWinRatio() {
-            let total = this.playerData[1].wins + this.playerData[1].losses;
-            let temp = this.playerData[1].wins * 100;
-            let result = temp / total; 
-            return result.toFixed(1) + '%';
-        },
-        getSoloDuoRankName() {
-            let rank = this.playerData[0].tier
+        getRankName($key) {
+            let rank = this.playerData[$key].tier
             let lowerCase = rank.toLowerCase();
             let rankd = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
-            this.soloDuoRank = rankd;
-            let image = '/images/Emblem_' + rankd + '.png'; 
-            return image;
-        },
-        getFlexRankName() {
-            let rank = this.playerData[1].tier
-            let lowerCase = rank.toLowerCase();
-            let rankd = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
-            this.flexRank = rankd;
+            if($key == 0) {
+                this.soloDuoRank = rankd;
+            }
+            if($key == 1) {
+                this.flexRank = rankd;
+            }
             let image = '/images/Emblem_' + rankd + '.png'; 
             return image;
         },
