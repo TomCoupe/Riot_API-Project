@@ -32,4 +32,9 @@ class SummonerAPIHelper {
         $response = Http::get('https://'.$region.'.api.riotgames.com/lol/match/v4/matches/'.$matchId.'?api_key='.env('RIOT_API_KEY'));
         return $response->json();
     }
+
+    public function getChamps() {
+        $response = Http::get('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json');
+        return $response->json();
+    }
 }

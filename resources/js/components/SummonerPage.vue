@@ -83,13 +83,43 @@
         </div>
         &nbsp;
     </div>
+    &nbsp;
+<div class="row">
+    &nbsp;
+    &nbsp;
+    <div class="col w-100">
+    <div class="card homepage-card">
+        <div class="card-header">
+            <h4 class="card-title home-card-title"> Match History <i class="fas fa-trophy"></i></i></h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        Past 20 games played
+                    </th>
+                </tr>
+                <tbody>
+                <template v-for="game in this.matchHistory">
+                <tr> 
+                    
+                </tr>
+                </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    &nbsp;
+    &nbsp;
+</div>
 </div>
 </template>
 
 <script>
 export default {
     name: "SummonerPage.vue",
-    props: ['playerdata', 'playerinfo', 'playerregion', 'matchhistory'],
+    props: ['playerdata', 'playerinfo', 'playerregion', 'matchhistory', 'champions'],
     mounted() {
         this.checkIfRanked();
         this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/'+ this.playerinfo.profileIconId +'.png'
@@ -104,9 +134,11 @@ export default {
     },
     data () {
         return {
+            championArr: this.champions,
             playerData: this.playerdata,
             playerInfo: this.playerinfo,
             playerRegion: this.playerregion,
+            matchHistory: this.matchhistory,
             iconURL: '',
             winRatio: '',
             flexRatio: '',
@@ -150,7 +182,7 @@ export default {
         checkIfRanked() {
             this.showSoloDuo = (0 in this.playerData);
             this.showFlex = (1 in this.playerData);
-        }
+        },
     }
 }
 </script>

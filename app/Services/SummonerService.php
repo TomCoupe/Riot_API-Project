@@ -54,4 +54,8 @@ class SummonerService {
         }
         return $arr;
     }
+
+    public function getChamps() {
+        return $this->helper->getChamps();
+    }
 }
