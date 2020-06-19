@@ -102,6 +102,7 @@
                 <tbody>
                 <template v-for="game in this.matchHistory">
                 <tr class="table-bordered"> 
+                    {{getDetailsForTheSummoner(game)}}
                     <img class="text-float" :src="getChampIcon(game.match.champion)">
                 </tr>
                 </template>
@@ -151,6 +152,15 @@ export default {
             flexRankPath: '',
             showSoloDuo: false,
             showFlex: false,
+
+            summoner: {
+                gameResult: '',
+                gold: '',
+                kills: '',
+                assists: '',
+                deaths: '',
+                cs: ''
+            },
         }
     },
     methods: {
@@ -185,6 +195,9 @@ export default {
                 }
             })
             return name;
+        },
+        getDetailsForTheSummoner(game) {
+            // this.summoner.gameResult = game.details.participants.
         }
     }
 }
