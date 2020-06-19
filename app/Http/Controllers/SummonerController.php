@@ -16,12 +16,11 @@ class SummonerController extends Controller {
         $response = $this->service->getSummonerRankedDataByName($region, $name);
         $playerInfo = $this->service->getSummonerProfileDataByName($region, $name);
         $matchHistory = $this->service->getMatchHistoryByName($region, $name);
-        $champions = $this->service->getChamps();
+        // $champions = $this->service->getChamps();
         return view('details.summoner')->with([
             'data' => $response, 
             'playerInfo' => $playerInfo, 
             'playerRegion' => $region,
-            'matchHistory' => $matchHistory,
-            'champions' => $champions]);
+            'matchHistory' => $matchHistory,]);
     }
 }

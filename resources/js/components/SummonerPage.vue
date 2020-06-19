@@ -96,13 +96,13 @@
             <table class="table table-bordered">
                 <tr>
                     <th>
-                        Past 20 games played
+                        {{this.summonerName}}'s past 20 games played.
                     </th>
                 </tr>
                 <tbody>
                 <template v-for="game in this.matchHistory">
                 <tr class="table-bordered"> 
-                    row
+                    <img class="text-float" :src="getChampIcon(game.match.champion)">
                 </tr>
                 </template>
                 </tbody>
@@ -117,9 +117,10 @@
 </template>
 
 <script>
+import champions from 'lol-champions';
 export default {
     name: "SummonerPage.vue",
-    props: ['playerdata', 'playerinfo', 'playerregion', 'matchhistory', 'champions'],
+    props: ['playerdata', 'playerinfo', 'playerregion', 'matchhistory'],
     mounted() {
         this.checkIfRanked();
         this.iconURL = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/'+ this.playerinfo.profileIconId +'.png'
@@ -134,11 +135,13 @@ export default {
     },
     data () {
         return {
-            championArr: this.champions,
+            // championArr: this.champions,
+            champArr: champions,
             playerData: this.playerdata,
             playerInfo: this.playerinfo,
             playerRegion: this.playerregion,
             matchHistory: this.matchhistory,
+            summonerName: this.playerinfo.name,
             iconURL: '',
             winRatio: '',
             flexRatio: '',
@@ -147,7 +150,7 @@ export default {
             flexRank: '',
             flexRankPath: '',
             showSoloDuo: false,
-            showFlex: false
+            showFlex: false,
         }
     },
     methods: {
@@ -174,6 +177,15 @@ export default {
             this.showSoloDuo = (0 in this.playerData);
             this.showFlex = (1 in this.playerData);
         },
+        getChampIcon($key) {
+            let name = '';
+            this.champArr.forEach(function(champ) {
+                if(champ.key == $key) {
+                    name = champ.icon;
+                }
+            })
+            return name;
+        }
     }
 }
 </script>
