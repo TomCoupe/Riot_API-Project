@@ -110,6 +110,14 @@ html, body {
     color: red;
 }
 
+.text-orange {
+    color: orange;
+}
+
+.circular--square {
+    border-radius: 50%;
+  }
+
 .text-float {
     float: left;
     border: 3px solid #343e54;

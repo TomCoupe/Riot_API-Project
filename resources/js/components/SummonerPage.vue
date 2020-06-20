@@ -102,8 +102,11 @@
                 <tbody>
                 <template v-for="game in this.matchHistory">
                 <tr class="table-bordered"> 
-                    {{getDetailsForTheSummoner(game)}}
-                    <img class="text-float" :src="getChampIcon(game.match.champion)">
+                    <img class="text-float circular--square" :src="getChampIcon(game.championKey)">
+                    &emsp;<b>Score: <span class="text-green">{{game.kills}}</span>/<span class="text-red">{{game.deaths}}</span>/<span class="text-orange">{{game.assists}}</span></b>
+
+                    <br>
+                    &emsp;<b>Gold earned: <i class="fas fa-coins"></i> {{game.gold}}</b>
                     <div class="allign-right">
                         <button class="btn btn-primary-dark text-white">More Details <i class="fas fa-sort-down"></i></button>
                     </div>
@@ -139,7 +142,6 @@ export default {
     },
     data () {
         return {
-            // championArr: this.champions,
             champArr: champions,
             playerData: this.playerdata,
             playerInfo: this.playerinfo,
@@ -199,9 +201,6 @@ export default {
             })
             return name;
         },
-        getDetailsForTheSummoner(game) {
-            // this.summoner.gameResult = game.details.participants.
-        }
     }
 }
 </script>
