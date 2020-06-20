@@ -105,6 +105,17 @@ html, body {
 .allign-right {
     float: right;
 }
+.allign-items-right {
+    float: right;
+    padding-right: 10%;
+}
+.allign-items-center {
+    float: center;
+}
+
+.pos-right {
+    float: right;
+}
 
 .text-red {
     color: red;

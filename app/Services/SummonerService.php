@@ -48,7 +48,7 @@ class SummonerService {
         for ($i = 0; $i < 20; $i++) {
             $result = $this->helper->getMatchDetails($region, $matches[$i]['gameId']);
             $player = $this->getSummonerMatchStatsByChampID($result['participants'], $matches[$i]['champion']);
-            // dd($result);
+            // dd($player);
             $arr[$i] = [
                 'championKey' => $matches[$i]['champion'],
                 'lane' => $matches[$i]['lane'],

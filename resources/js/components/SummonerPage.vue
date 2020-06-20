@@ -106,24 +106,34 @@
                     &emsp;<b>Score: <span class="text-green">{{game.kills}}</span>/<span class="text-red">{{game.deaths}}</span>/<span class="text-orange">{{game.assists}}</span></b>
                     &emsp;<b>Time elapsed: {{toFixed(game.gameLength)}} minutes</b>
                     <br>
-                    &emsp;<b>Gold earned: <i class="fas fa-coins"></i> {{game.gold}}</b> 
                     &emsp;
-                    <template v-for="player in game.team1">
-                        <img :src="getChampIcon(player)" width="46"></img>
+                    <template v-if="game.win === true">
+                        <span class="badge badge-success">Victory</span>
                     </template>
-                    &emsp;
+                    <template v-else>
+                        <span class="badge badge-danger">Loss</span>
+                    </template>
+                    &emsp;<b><i class="fas fa-coins"></i> {{game.gold}}</b>
+                    <div class="allign-items-right">
                     <template v-for="item in game.items">
                         <img class="round--corners" :src="getIconImg(item)" width="46">
                     </template>
+                    </div>
                     <br>
                     &emsp;<b>CS: {{game.creepScore}}</b>
-                    <div class="allign-right">
-                        <button class="btn btn-primary-dark text-white">More Details <i class="fas fa-sort-down"></i></button>
-                    </div>
+                    <br>
+                    <div class="allign-items-center">
                     &emsp;
-                    <template v-for="player in game.team2">
-                        <img :src="getChampIcon(player)" width="46"></img>
-                    </template>
+                        <template v-for="player in game.team1">
+                            <img :src="getChampIcon(player)" width="46"></img>
+                        </template>
+                    &emsp;
+                    <b class="text-red">VS</b>
+                    &emsp;
+                        <template v-for="player in game.team2">
+                            <img :src="getChampIcon(player)" width="46"></img>
+                        </template>
+                    </div>
                 </tr>
                 </template>
                 </tbody>
