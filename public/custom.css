@@ -116,7 +116,15 @@ html, body {
 
 .circular--square {
     border-radius: 50%;
-  }
+}
+
+.background-win {
+    background-color: #daffd6;
+}
+
+.background-loss {
+    background-color: #ffd6d6;
+}
 
 .text-float {
     float: left;
