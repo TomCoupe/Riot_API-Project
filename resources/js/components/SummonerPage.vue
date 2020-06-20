@@ -104,6 +104,9 @@
                 <tr class="table-bordered"> 
                     {{getDetailsForTheSummoner(game)}}
                     <img class="text-float" :src="getChampIcon(game.match.champion)">
+                    <div class="allign-right">
+                        <button class="btn btn-primary-dark text-white">More Details <i class="fas fa-sort-down"></i></button>
+                    </div>
                 </tr>
                 </template>
                 </tbody>

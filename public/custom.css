@@ -102,6 +102,10 @@ html, body {
     color: green;
 }
 
+.allign-right {
+    float: right;
+}
+
 .text-red {
     color: red;
 }

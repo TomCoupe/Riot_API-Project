@@ -44,15 +44,33 @@ class SummonerService {
         $history = $this->helper->getMatchHistoryOfSummoner($region, $name);
         $matches = $history['matches'];
         $arr = [];  
-        //getting last 20 games     
+        //getting last 20 games   
         for ($i = 0; $i < 20; $i++) {
             $result = $this->helper->getMatchDetails($region, $matches[$i]['gameId']);
+            $player = $this->getSummonerMatchStatsByChampID($result['participants'], $matches[$i]['champion']);
             $arr[$i] = [
-                'details' => $result, 
-                'match' => $matches[$i]
+                'championKey' => $matches[$i]['champion'],
+                'lane' => $matches[$i]['lane'],
+                'gameLength' => $result['gameDuration'],
+                'win' => $result['stats']['win'],
+                'kills' => $result['stats']['kills'],
+                'deaths' => $result['stats']['deaths'],
+                'assists' => $result['stats']['assists'],
+                'gold' => $result['stats']['goldEarned'],
+                'championLevel' => $result['stats']['champLevel'],
+                'allPlayers' => $result['participants'],
+                'creepScore' => $result['stats']['totalMinionsKilled']
             ];
         }
         return $arr;
+    }
+
+    public function getSummonerMatchStatsByChampID($players, $champID) {
+        foreach($players as $player) {
+            if($player['championId'] == $champID) {
+                return $player;
+            }
+        }
     }
 
     public function getChamps() {
