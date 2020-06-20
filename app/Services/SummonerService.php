@@ -48,7 +48,7 @@ class SummonerService {
         for ($i = 0; $i < 20; $i++) {
             $result = $this->helper->getMatchDetails($region, $matches[$i]['gameId']);
             $player = $this->getSummonerMatchStatsByChampID($result['participants'], $matches[$i]['champion']);
-            
+            // dd($result);
             $arr[$i] = [
                 'championKey' => $matches[$i]['champion'],
                 'lane' => $matches[$i]['lane'],
@@ -60,7 +60,29 @@ class SummonerService {
                 'gold' => $player['stats']['goldEarned'],
                 'championLevel' => $player['stats']['champLevel'],
                 'allPlayers' => $result['participants'],
-                'creepScore' => $player['stats']['totalMinionsKilled']
+                'creepScore' => $player['stats']['totalMinionsKilled'],
+                'items' => [
+                    'item1' => $player['stats']['item0'],
+                    'item2' => $player['stats']['item1'],
+                    'item3' => $player['stats']['item2'],   
+                    'item4' => $player['stats']['item3'],
+                    'item5' => $player['stats']['item4'],
+                    'item6'=> $player['stats']['item5']
+                ],
+                'team1' => [
+                    'player1' => $result['participants'][0]['championId'],
+                    'player2' => $result['participants'][1]['championId'],
+                    'player3' => $result['participants'][2]['championId'],
+                    'player4' => $result['participants'][3]['championId'],
+                    'player5' => $result['participants'][4]['championId'],
+                ],
+                'team2' => [
+                    'player1' => $result['participants'][5]['championId'],
+                    'player2' => $result['participants'][6]['championId'],
+                    'player3' => $result['participants'][7]['championId'],
+                    'player4' => $result['participants'][8]['championId'],
+                    'player5' => $result['participants'][9]['championId']
+                ]
             ];
         }
         return $arr;

@@ -118,8 +118,15 @@ html, body {
     border-radius: 50%;
 }
 
+.round--corners {
+    border-radius: 10px;
+}
+
 .background-win {
     background-color: #daffd6;
+}
+.background-grey {
+    background-color: #cfcfcf;
 }
 
 .background-loss {

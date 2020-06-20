@@ -104,15 +104,26 @@
                 <tr class="table-bordered" :class="game.win === true ? 'background-win' : 'background-loss'"> 
                     <img class="text-float circular--square" :src="getChampIcon(game.championKey)">
                     &emsp;<b>Score: <span class="text-green">{{game.kills}}</span>/<span class="text-red">{{game.deaths}}</span>/<span class="text-orange">{{game.assists}}</span></b>
-
+                    &emsp;<b>Time elapsed: {{toFixed(game.gameLength)}} minutes</b>
                     <br>
-                    &emsp;<b>Gold earned: <i class="fas fa-coins"></i> {{game.gold}}</b>
-
+                    &emsp;<b>Gold earned: <i class="fas fa-coins"></i> {{game.gold}}</b> 
+                    &emsp;
+                    <template v-for="player in game.team1">
+                        <img :src="getChampIcon(player)" width="46"></img>
+                    </template>
+                    &emsp;
+                    <template v-for="item in game.items">
+                        <img class="round--corners" :src="getIconImg(item)" width="46">
+                    </template>
                     <br>
                     &emsp;<b>CS: {{game.creepScore}}</b>
                     <div class="allign-right">
                         <button class="btn btn-primary-dark text-white">More Details <i class="fas fa-sort-down"></i></button>
                     </div>
+                    &emsp;
+                    <template v-for="player in game.team2">
+                        <img :src="getChampIcon(player)" width="46"></img>
+                    </template>
                 </tr>
                 </template>
                 </tbody>
@@ -160,15 +171,6 @@ export default {
             flexRankPath: '',
             showSoloDuo: false,
             showFlex: false,
-
-            summoner: {
-                gameResult: '',
-                gold: '',
-                kills: '',
-                assists: '',
-                deaths: '',
-                cs: ''
-            },
         }
     },
     methods: {
@@ -204,6 +206,16 @@ export default {
             })
             return name;
         },
+        toFixed($time) {
+            let mins = $time / 60;
+            return mins.toFixed(1);
+        },
+        getIconImg(icon) {
+            if(icon == 0) {
+                return 'https://www.iconsdb.com/icons/preview/gray/square-xxl.png';
+            }
+            return 'http://ddragon.leagueoflegends.com/cdn/10.12.1/img/item/'+ icon +'.png';
+        }
     }
 }
 </script>
