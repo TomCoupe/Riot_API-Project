@@ -1,15 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Devtemple\Laralol\Facades\Champion;
 use Illuminate\Routing\Controller as BaseController;
 use App\Services\SummonerService;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
 
     protected $service;
 
-    public function __construct(SummonerService $service) {
+    public function __construct(SummonerService $service)
+    {
         $this->service = $service;
     }
 
@@ -19,4 +22,4 @@ class HomeController extends Controller {
     // }
     // https://api.riotgames.com
     // https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/
-}           
+}

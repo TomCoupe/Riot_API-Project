@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use RiotAPI\LeagueAPI\LeagueAPI;
@@ -6,15 +7,18 @@ use RiotAPI\LeagueAPI\Definitions\Region;
 use Illuminate\Support\Facades\Http;
 use App\RiotHelpers\SummonerAPIHelper;
 
-class SummonerService {
+class SummonerService
+{
 
     protected $helper;
 
-    public function __construct(SummonerAPIHelper $helper) {
+    public function __construct(SummonerAPIHelper $helper)
+    {
         $this->helper = $helper;
     }
 
-    public function getRegionId($region) {
+    public function getRegionId($region)
+    {
         switch ($region) {
             case 'EUW':
                 return 'euw1';
@@ -28,22 +32,25 @@ class SummonerService {
                 return false;
         }
     }
-    public function getSummonerProfileDataByName($region, $name) {
+    public function getSummonerProfileDataByName($region, $name)
+    {
         $region = $this->getRegionId($region);
         $profileInfo = $this->helper->getSummonerByName($region, $name);
         return $profileInfo;
     }
 
-    public function getSummonerRankedDataByName($region, $name) {
+    public function getSummonerRankedDataByName($region, $name)
+    {
         $region = $this->getRegionId($region);
         $summoner = $this->helper->getRankedInformationByName($region, $name);
         return $summoner;
     }
-    public function getMatchHistoryByName($region, $name) {
+    public function getMatchHistoryByName($region, $name)
+    {
         $region = $this->getRegionId($region);
         $history = $this->helper->getMatchHistoryOfSummoner($region, $name);
         $matches = $history['matches'];
-        $arr = [];  
+        $arr = [];
         //getting last 20 games   
         for ($i = 0; $i < 20; $i++) {
             $result = $this->helper->getMatchDetails($region, $matches[$i]['gameId']);
@@ -61,13 +68,14 @@ class SummonerService {
                 'championLevel' => $player['stats']['champLevel'],
                 'allPlayers' => $result['participants'],
                 'creepScore' => $player['stats']['totalMinionsKilled'],
+                'champLevel' => $player['stats']['champLevel'],
                 'items' => [
                     'item1' => $player['stats']['item0'],
                     'item2' => $player['stats']['item1'],
-                    'item3' => $player['stats']['item2'],   
+                    'item3' => $player['stats']['item2'],
                     'item4' => $player['stats']['item3'],
                     'item5' => $player['stats']['item4'],
-                    'item6'=> $player['stats']['item5']
+                    'item6' => $player['stats']['item5']
                 ],
                 'team1' => [
                     'player1' => $result['participants'][0]['championId'],
@@ -88,15 +96,17 @@ class SummonerService {
         return $arr;
     }
 
-    public function getSummonerMatchStatsByChampID($players, $champID) {
-        foreach($players as $player) {
-            if($player['championId'] == $champID) {
+    public function getSummonerMatchStatsByChampID($players, $champID)
+    {
+        foreach ($players as $player) {
+            if ($player['championId'] == $champID) {
                 return $player;
             }
         }
     }
 
-    public function getChamps() {
+    public function getChamps()
+    {
         return $this->helper->getChamps();
     }
 }

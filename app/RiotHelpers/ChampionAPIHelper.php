@@ -2,7 +2,6 @@
 
 namespace App\RiotHelpers;
 
-class ChampionAPIHelper {
-
-    
+class ChampionAPIHelper
+{
 }

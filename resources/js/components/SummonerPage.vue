@@ -102,7 +102,10 @@
                 <tbody>
                 <template v-for="game in this.matchHistory">
                 <tr class="table-bordered" :class="game.win === true ? 'background-win' : 'background-loss'"> 
-                    <img class="text-float circular--square" :src="getChampIcon(game.championKey)">
+                    <div class="text-float image_with_badge_container">
+                        <img :src="getChampIcon(game.championKey)">
+                        <span class="badge badge-dark badge-on-image"><b> {{game.champLevel}} </b></span>
+                    </div>
                     &emsp;<b>Score: <span class="text-green">{{game.kills}}</span>/<span class="text-red">{{game.deaths}}</span>/<span class="text-orange">{{game.assists}}</span></b>
                     &emsp;<b>Time elapsed: {{toFixed(game.gameLength)}} minutes</b>
                     <br>
@@ -115,9 +118,9 @@
                     </template>
                     &emsp;<b><i class="fas fa-coins"></i> {{game.gold}}</b>
                     <div class="allign-items-right">
-                    <template v-for="item in game.items">
-                        <img class="round--corners" :src="getIconImg(item)" width="46">
-                    </template>
+                        <template v-for="item in game.items">
+                            <img class="round--corners" :src="getIconImg(item)" width="46">
+                        </template>
                     </div>
                     <br>
                     &emsp;<b>CS: {{game.creepScore}}</b>
@@ -218,7 +221,7 @@ export default {
         },
         toFixed($time) {
             let mins = $time / 60;
-            return mins.toFixed(1);
+            return mins.toFixed(2);
         },
         getIconImg(icon) {
             if(icon == 0) {
