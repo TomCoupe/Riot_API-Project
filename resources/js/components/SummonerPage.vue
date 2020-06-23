@@ -187,12 +187,14 @@ export default {
         }
     },
     methods: {
+        
         calculateWinRatio($key) {
             let total = this.playerData[$key].wins + this.playerData[$key].losses;
             let temp = this.playerData[$key].wins * 100;
             let result = temp / total; 
             return result.toFixed(1) + '%';
         },
+
         getRankName($key) {
             let rank = this.playerData[$key].tier
             let lowerCase = rank.toLowerCase();
@@ -206,10 +208,12 @@ export default {
             let image = '/images/Emblem_' + rankd + '.png'; 
             return image;
         },
+
         checkIfRanked() {
             this.showSoloDuo = (0 in this.playerData);
             this.showFlex = (1 in this.playerData);
         },
+
         getChampIcon($key) {
             let name = '';
             this.champArr.forEach(function(champ) {
@@ -219,10 +223,12 @@ export default {
             })
             return name;
         },
+
         toFixed($time) {
             let mins = $time / 60;
             return mins.toFixed(2);
         },
+
         getIconImg(icon) {
             if(icon == 0) {
                 return 'https://www.iconsdb.com/icons/preview/gray/square-xxl.png';
