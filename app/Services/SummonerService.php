@@ -45,6 +45,12 @@ class SummonerService
         $summoner = $this->helper->getRankedInformationByName($region, $name);
         return $summoner;
     }
+
+    public function getLeaderboards($region) {
+        $region = $this->getRegionId($region);
+        return $this->helper->getChallengerLeaderboards($region);
+    }
+
     public function getMatchHistoryByName($region, $name)
     {
         $region = $this->getRegionId($region);

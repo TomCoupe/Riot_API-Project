@@ -22,4 +22,8 @@ class HomeController extends Controller
     // }
     // https://api.riotgames.com
     // https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/
+
+    public function getLeaderboards($region) {
+        return $this->service->getLeaderboards($region);
+    }
 }

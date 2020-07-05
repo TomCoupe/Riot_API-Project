@@ -30,15 +30,30 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
     name: "LeaderboardsTable.vue",
     data () {
         return {
-
+            players: [],
+            region: 'EUW'
         }
     },
+    mounted () {
+        this.getLeaderboards(this.region);
+    },
     methods: {
-
+        getLeaderboards(region) {
+            axios.get('/leaderboards/' + region)
+            .then(response => {
+                players = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            }); 
+        }
     }
 }
 </script>

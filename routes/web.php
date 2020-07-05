@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::get('/summoner/{region}/{name}', 'SummonerController@getSummonerData');
 Route::get('/champion/{name}', 'ChampionController@showChampion');
+Route::get('/leaderboards/{region}', 'HomeController@getLeaderboards');
