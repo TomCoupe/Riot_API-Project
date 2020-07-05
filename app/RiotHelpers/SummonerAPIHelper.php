@@ -3,6 +3,7 @@
 namespace App\RiotHelpers;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class SummonerAPIHelper
 {
@@ -48,6 +49,7 @@ class SummonerAPIHelper
     public function getChallengerLeaderboards($region) {
         $queue = 'RANKED_SOLO_5x5';
         $response = Http::get('https://' . $region . '.api.riotgames.com//lol/league/v4/challengerleagues/by-queue/'. $queue .'?api_key='. env('RIOT_API_KEY'));
+        Log::info($response->json());
         return $response->json();
     }
 }

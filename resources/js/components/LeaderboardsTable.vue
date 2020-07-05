@@ -7,23 +7,11 @@
                 <th scope="col">LP</th>
                 <th scope="col">Region</th>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>1337</td>
+            <tr v-for="summoner in this.players">
+                <td>1</td>
+                <td>{{summoner.summonerName}}</td>
+                <td>{{summoner.leaguePoints}}</td>
                 <td>EUW</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>WagWannnn</td>
-                <td>1000</td>
-                <td>EUW</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>992</td>
-                <td>NA</td>
             </tr>
         </table>
     </div>
@@ -42,13 +30,15 @@ export default {
         }
     },
     mounted () {
-        this.getLeaderboards(this.region);
+        this.getLeaderboards('EUW');
     },
     methods: {
         getLeaderboards(region) {
+            let app = this;
             axios.get('/leaderboards/' + region)
             .then(response => {
-                players = response.data;
+                // console.log(response.data);
+                app.players = response.data;
             })
             .catch(error => {
                 console.log(error);

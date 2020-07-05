@@ -6,6 +6,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Definitions\Region;
 use Illuminate\Support\Facades\Http;
 use App\RiotHelpers\SummonerAPIHelper;
+use Illuminate\Support\Facades\Log;
 
 class SummonerService
 {
@@ -46,9 +47,14 @@ class SummonerService
         return $summoner;
     }
 
-    public function getLeaderboards($region) {
-        $region = $this->getRegionId($region);
-        return $this->helper->getChallengerLeaderboards($region);
+    public function getLeaderboards($reg) {
+        $region = $this->getRegionId($reg);
+        $summoners = $this->helper->getChallengerLeaderboards($region);
+        $arr = [];
+        for ($i = 0; $i < 20; $i++) {
+            $arr[] = $summoners['entries'][$i];
+        }
+        return $arr;
     }
 
     public function getMatchHistoryByName($region, $name)
