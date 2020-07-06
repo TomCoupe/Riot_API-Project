@@ -28,6 +28,7 @@
 
 .card-body-dark {
     background-color:#6b6b6b;
+    overflow-x: hidden;
 }
 
 .searchTerm {

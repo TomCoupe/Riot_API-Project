@@ -37,7 +37,6 @@ export default {
             let app = this;
             axios.get('/leaderboards/' + region)
             .then(response => {
-                // console.log(response.data);
                 app.players = response.data;
             })
             .catch(error => {
