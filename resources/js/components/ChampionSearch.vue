@@ -7,9 +7,9 @@
             </option>
         </datalist>
         &nbsp;
-        <button class="btn btn-primary-dark text-white button-full-width"> Search</button>
+        <button class="btn btn-primary-dark text-white button-full-width" @click="this.getChampion"> Search</button>
         &nbsp;
-        <button class="btn btn-danger button-full-width"> Random Champion</button>
+        <button class="btn btn-danger button-full-width" @click="this.getRandomChampion"> Random Champion</button>
     </div>
 </template>
 
@@ -28,8 +28,16 @@ export default {
         }
     },
     methods: {
-        postChampion() {
-            
+        
+        getChampion() {
+            window.location.href = '/champion/' + formData.champName;
+        },
+
+        getRandomChampion() {
+            var length = this.allChampions.length;
+            var randomNumber = Math.floor(Math.random() * length);
+            var randomChamp = this.allChampions[randomNumber].name;
+            window.location.href = '/champion/' + randomChamp;
         }
     }
 }
