@@ -24,6 +24,10 @@ If you do not have an API key, you can get a free API key on the Riot Developer 
 
 ```docker-compose up --build```
 
+To build in detatched mode:
+
+```docker-compose up --build -d```
+
 this will build and bring up the docker containers.
 
 <b>3)</b> Once container has built in another terminal in the same project root, bash into the docker container by running this command:
