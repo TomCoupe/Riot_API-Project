@@ -63,10 +63,23 @@ export default {
     props: ['name'],
     data () {
         return {
+            champName: this.name,
+            allChampions: champions,
+            champData: []
         }
     },
+    mounted () {
+        this.findChampionByName();
+    },
     methods: {
-
+        findChampionByName() {
+            for (let champ in this.allChampions) {
+                if(this.allChampions[champ].name == this.champName) {
+                    this.champData = this.allChampions[champ];
+                    return;
+                }
+            }
+        },
     }
 }
 </script>
