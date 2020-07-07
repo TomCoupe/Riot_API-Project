@@ -61,6 +61,7 @@ services:
     ports:
       - 33070:3306
 
+  # Cache 
   redis:
     container_name: app-redis
     image: redis:latest
@@ -69,6 +70,7 @@ services:
     ports:
       - 6379:6379
 
+  # SMTP server
   mailhog:
     image: mailhog/mailhog
     container_name: 'mailhog'
