@@ -58,4 +58,6 @@ if you are having issues migrating the database try running inside the container
 ```composer dump-autoload```
 
 
+
+<b>To access the mailhog SMTP inbox go to: </b>http://localhost:8025/
 </p>

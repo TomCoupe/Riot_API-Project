@@ -18,6 +18,7 @@ services:
     depends_on:
       - database
       - redis
+      - mailhog
     environment:
       - "DB_DATABASE=homestead"
       - "DB_USERNAME=homestead"
@@ -67,6 +68,13 @@ services:
       - app-network
     ports:
       - 6379:6379
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: 'mailhog'
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 
 volumes:
   unify-template-db:
