@@ -2,11 +2,7 @@
 
 namespace App\Services;
 
-use RiotAPI\LeagueAPI\LeagueAPI;
-use RiotAPI\LeagueAPI\Definitions\Region;
-use Illuminate\Support\Facades\Http;
 use App\RiotHelpers\SummonerAPIHelper;
-use Illuminate\Support\Facades\Log;
 
 class SummonerService
 {
@@ -67,7 +63,6 @@ class SummonerService
         for ($i = 0; $i < 20; $i++) {
             $result = $this->helper->getMatchDetails($region, $matches[$i]['gameId']);
             $player = $this->getSummonerMatchStatsByChampID($result['participants'], $matches[$i]['champion']);
-            // dd($player);
             $arr[$i] = [
                 'championKey' => $matches[$i]['champion'],
                 'lane' => $matches[$i]['lane'],

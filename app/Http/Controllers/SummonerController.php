@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\RiotHelpers\SummonerAPIHelper;
 use App\Services\SummonerService;
 
 class SummonerController extends Controller
@@ -20,7 +19,7 @@ class SummonerController extends Controller
         $response = $this->service->getSummonerRankedDataByName($region, $name);
         $playerInfo = $this->service->getSummonerProfileDataByName($region, $name);
         $matchHistory = $this->service->getMatchHistoryByName($region, $name);
-        // $champions = $this->service->getChamps();
+
         return view('details.summoner')->with([
             'data' => $response,
             'playerInfo' => $playerInfo,
